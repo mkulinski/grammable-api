@@ -1,9 +1,20 @@
 Rails.application.routes.draw do
+
+  namespace :api do
+    namespace :v1 do
+      resources :users
+      resources :grams
+    end
+  end
+  
+  
   devise_for :users
   root "grams#index"
   resources :grams do
     resources :comments, only: :create
   end
+  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
